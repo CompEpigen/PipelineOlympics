@@ -15,6 +15,8 @@ We implemented ten bisulfite sequencing analysis workflows in CWL.
 9. [methylCtools](https://github.com/hovestadt/methylCtools)
 10. [methylpy](https://github.com/yupenghe/methylpy)
 
+All CWLs tool documents needed to run the worlflows are listed in [Workflows.md](https://github.com/CompEpigen/PipelineOlympics/blob/main/CWL/Workflows.md).
+
 ## Installation
 
 The [cwltool](https://github.com/common-workflow-language/cwltool) and Docker are requried.
