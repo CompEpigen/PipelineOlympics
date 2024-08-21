@@ -15,7 +15,7 @@ Current study included 10 previously published workflows.
 5. [bwa-meth](https://github.com/brentp/bwa-meth)
 6. [FAME](https://github.com/FischerJo/FAME)
 7. [gemBS](https://github.com/heathsc/gemBS)
-8. [GSNAP](http://research-pub.gene.com/gmap/) ( - [BisSNP](https://people.csail.mit.edu/dnaase/bissnp2011/))
+8. [GSNAP](http://research-pub.gene.com/gmap/) with [BisSNP](https://people.csail.mit.edu/dnaase/bissnp2011/)
 9. [methylCtools](https://github.com/hovestadt/methylCtools)
 10. [methylpy](https://github.com/yupenghe/methylpy)
 
