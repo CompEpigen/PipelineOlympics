@@ -4,4 +4,4 @@ Analysis of bisulfite sequencing data relies upon processing that generally incl
 
 To bridge this gap, we set out to perform a thorough benchmarking study of bisulfite sequencing workflows. At the core of our benchmark is a set of samples with highly accurate methylation calls [Bock, Halbritter et al. 2016](https://doi.org/10.1038/nbt.3605), which we use as the gold-standard. We evaluate the software in the context of five most widely used sequencing protocols and propose protocol-specific choice of workflows. To simplify the choice of workflows and enable continuity we developed rich data presentation and benchmarking resources. To our knowledge, this is the most comprehensive benchmarking study of bisulfite sequencing to date.
 
-All CWLs combinations of the Benchmarking projects are listed in [Workflows.md](https://github.com/CompEpigen/PipelineOlympics/blob/c8dc36333fe9b55fc42fb4857943f284a13c485d/CWL/Workflows.md).
+All CWLs combinations of the Benchmarking projects are listed in [Workflows.md](https://github.com/CompEpigen/PipelineOlympics/blob/main/CWL/Workflows.md).
