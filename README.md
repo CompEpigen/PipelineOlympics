@@ -19,7 +19,7 @@ Current study included 10 previously published workflows.
 9. [methylCtools](https://github.com/hovestadt/methylCtools)
 10. [methylpy](https://github.com/yupenghe/methylpy)
 
-The benchmarking implementation and resources enable semless extension of the list of current workflows to include new workflows. 
+The benchmarking implementation and resources enable semless extension of the list of current workflows to include new software. 
 
 ## Pipeline Olympics resources
 
