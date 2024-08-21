@@ -6,10 +6,12 @@ To bridge this gap, we set out to perform a thorough benchmarking study of bisul
 
 ## Pipeline Olympics resources
 
-Automated benchmarking portal based on [workflUX](https://github.com/workflux/workflux/)
+- Automated benchmarking portal based on [workflUX](https://github.com/workflux/workflux/)
+
 https://epigenomics.dkfz.de/PipelineOlympics/worlflux
 
-Interactive web-interface with benchmarking metrics
+- Interactive web-interface with benchmarking metrics
+
 https://epigenomics.dkfz.de/PipelineOlympics/shiny
 
 
