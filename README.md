@@ -8,7 +8,7 @@ To bridge this gap, we set out to perform a thorough benchmarking study of bisul
 
 - Automated benchmarking portal based on [workflUX](https://github.com/workflux/workflux/)
 
-https://epigenomics.dkfz.de/PipelineOlympics/worlflux
+https://epigenomics.dkfz.de/PipelineOlympics/workflux
 
 - Interactive web-interface with benchmarking metrics
 
