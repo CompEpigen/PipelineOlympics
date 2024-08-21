@@ -1,4 +1,4 @@
-# BS analysis workflows - CWL implemetation
+# CWL implemetation of PipelineOlympics workflows
 
 [Common Workflow Language (CWL)](https://www.commonwl.org/) is an open standard for describing how to  run each computing job and connect them to create workflows. Because CWL is a specification and not a specific piece of software, tools and workflows described using CWL are portable across various platforms that support the CWL standard.
 
