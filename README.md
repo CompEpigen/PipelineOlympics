@@ -1,4 +1,4 @@
-# Pipeline Olympics: continuous benchmarking of computational workflows for DNA methylation sequencing data against an ex-perimental gold-standard reference
+# Pipeline Olympics: continuous benchmarking of computational workflows for DNA methylation sequencing data
 
 Analysis of bisulfite sequencing data relies upon processing that generally includes four core steps: read preprocessing, alignment, post-alignment processing and calling of methylation states. An impressive number of tools for each of the steps or their combinations, workflows integrating them as well as turn-key solutions have been proposed. Despite of this versatility, so far only few attempts have been made to systematically evaluate complete processing workflows in a standardized and unbiased analysis. Previous benchmarks either focused upon a single processing task, e.g. predominantly alignment software. None of the previous benchmarks covered the complete data processing workflow and was based on a reasonable gold-standard data set.
 
