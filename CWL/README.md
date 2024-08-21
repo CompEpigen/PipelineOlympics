@@ -2,19 +2,6 @@
 
 [Common Workflow Language (CWL)](https://www.commonwl.org/) is an open standard for describing how to  run each computing job and connect them to create workflows. Because CWL is a specification and not a specific piece of software, tools and workflows described using CWL are portable across various platforms that support the CWL standard.
 
-We implemented ten bisulfite sequencing analysis workflows in CWL.
-
-1. [BAT](http://www.bioinf.uni-leipzig.de/Software/BAT/)
-2. [Biscuit](https://huishenlab.github.io/biscuit/)
-3. [Bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/)
-4. [BSBolt](https://github.com/NuttyLogic/BSBolt)
-5. [bwa-meth](https://github.com/brentp/bwa-meth)
-6. [FAME](https://github.com/FischerJo/FAME)
-7. [gemBS](https://github.com/heathsc/gemBS)
-8. [GSNAP](http://research-pub.gene.com/gmap/) ( - [BisSNP](https://people.csail.mit.edu/dnaase/bissnp2011/))
-9. [methylCtools](https://github.com/hovestadt/methylCtools)
-10. [methylpy](https://github.com/yupenghe/methylpy)
-
 All CWLs tool documents needed to run the worlflows are listed in [Workflows.md](https://github.com/CompEpigen/PipelineOlympics/blob/main/CWL/Workflows.md).
 
 ## Installation
