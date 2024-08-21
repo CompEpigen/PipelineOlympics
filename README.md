@@ -12,7 +12,7 @@ Current study included 10 previously published workflows.
 2. [Biscuit](https://huishenlab.github.io/biscuit/)
 3. [Bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/)
 4. [BSBolt](https://github.com/NuttyLogic/BSBolt)
-5. [bwa-meth](https://github.com/brentp/bwa-meth)
+5. [bwa-meth](https://github.com/brentp/bwa-meth) with [MethylDackel](https://github.com/dpryan79/MethylDackel)
 6. [FAME](https://github.com/FischerJo/FAME)
 7. [gemBS](https://github.com/heathsc/gemBS)
 8. [GSNAP](http://research-pub.gene.com/gmap/) with [BisSNP](https://people.csail.mit.edu/dnaase/bissnp2011/)
