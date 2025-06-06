@@ -44,7 +44,7 @@ steps:
          source: header
        output_name:
          source: output_name
-     out: [vcf_out]
+     out: [vcf]
 
   bcftools:
     run: "./BAT_bcftools.cwl"
