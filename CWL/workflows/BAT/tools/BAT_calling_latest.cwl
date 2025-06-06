@@ -38,19 +38,19 @@ steps:
   cat:
      run: "./BAT_cat.cwl"
      in:
-       vcf: 
+       vcf_in: 
          source: callmethyl/vcf
        header:
          source: header
        output_name:
          source: output_name
-     out: [vcf]
+     out: [vcf_out]
 
   bcftools:
     run: "./BAT_bcftools.cwl"
     in:
       vcf: 
-        source: cat/vcf
+        source: cat/vcf_out
     out: [vcfgz]
 
    

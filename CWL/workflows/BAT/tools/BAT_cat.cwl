@@ -13,7 +13,7 @@ requirements:
   ShellCommandRequirement: {}
 
 inputs:
-  vcf:
+  vcf_in:
     type: File
     inputBinding:
       position: 2
@@ -24,8 +24,8 @@ inputs:
     inputBinding:
       position: 1
 
-outputs: 
-  vcf:
+outputs:
+  vcf_out:
     type: File
     outputBinding:
       glob: $(inputs.output_name).vcf
