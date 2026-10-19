@@ -23,13 +23,21 @@ The benchmarking implementation and resources enable semless extension of the li
 
 ## Pipeline Olympics resources
 
-- Automated benchmarking portal based on [workflUX](https://github.com/workflux/workflux/)
+- Study website
 
-https://epigenomics.dkfz.de/PipelineOlympics/workflux
+https://compepigen.github.io/PipelineOlympics/
+
+- Automated benchmarking portal based on [workflUX](https://github.com/workflux/workflux/), with a usage guide and ready-made parameter sheets
+
+https://compepigen.github.io/PipelineOlympics/workflux/
 
 - Interactive web-interface with benchmarking metrics
 
-https://epigenomics.dkfz.de/PipelineOlympics/shiny
+https://compepigen.github.io/PipelineOlympics/shiny/
+
+## Citation
+
+Lin Y-Y, Breuer K, Weichenhan D, *et al.* Pipeline Olympics: continuable benchmarking of computational workflows for DNA methylation sequencing data against an experimental gold standard. *Nucleic Acids Research* 2025;53(19):gkaf970. https://doi.org/10.1093/nar/gkaf970
 
 
 
