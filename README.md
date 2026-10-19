@@ -39,5 +39,9 @@ https://compepigen.github.io/PipelineOlympics/shiny/
 
 Lin Y-Y, Breuer K, Weichenhan D, *et al.* Pipeline Olympics: continuable benchmarking of computational workflows for DNA methylation sequencing data against an experimental gold standard. *Nucleic Acids Research* 2025;53(19):gkaf970. https://doi.org/10.1093/nar/gkaf970
 
+## License
+
+The workflows, analysis scripts and website in this repository are available under the [MIT License](LICENSE). The benchmarked tools and their container images keep their own licenses.
+
 
 
