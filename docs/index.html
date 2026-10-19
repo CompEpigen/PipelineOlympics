@@ -1,10 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipeline Olympics</title>
+  <meta name="description" content="Pipeline Olympics: continuable benchmarking of computational workflows for DNA methylation sequencing data against an experimental gold standard (Nucleic Acids Research, 2025).">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 26V12M16 26V6M26 26V14' stroke='%230b6e69' stroke-width='2.5'/%3E%3Ccircle cx='6' cy='10' r='4.5' fill='%230b6e69'/%3E%3Ccircle cx='16' cy='6' r='4.5' fill='white' stroke='%230b6e69' stroke-width='2.5'/%3E%3Ccircle cx='26' cy='12' r='4.5' fill='%230b6e69'/%3E%3C/svg%3E">
 </head>
 <body>
-<h1>Pipeline Olympics supplementary website</h1>
 
-  <a href="workflux/"><h2>Automated benchmarking service on Workflux</h2></a>
-</br>
-  <a href="shiny/"><h2>Shiny-based benchmarking results portal</h2></a>
-  
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26V12M16 26V8M26 26V14" stroke="currentColor" stroke-width="2.5"/><circle cx="6" cy="10" r="4.5" fill="var(--accent)"/><circle cx="16" cy="7" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="26" cy="12" r="4.5" fill="var(--accent)"/></svg>
+      Pipeline Olympics
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#study">Study</a>
+      <a href="#findings">Findings</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#resources">Resources</a>
+      <a href="workflux/">Benchmarking service</a>
+      <a href="#cite">Cite</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Nucleic Acids Research · 2025</p>
+      <h1>Pipeline Olympics</h1>
+      <p class="lede">Continuable benchmarking of computational workflows for DNA methylation sequencing data against an experimental gold standard.</p>
+      <p>We compared ten complete workflows that turn bisulfite and enzymatic methylation sequencing reads into DNA methylation calls. We ran them on data from five library protocols and scored them against highly accurate locus-specific measurements. The benchmark stays open: the results can be explored and re-ranked interactively, and new workflows can be run on the same data.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://doi.org/10.1093/nar/gkaf970">Read the paper</a>
+        <a class="btn" href="shiny/">Explore the results</a>
+        <a class="btn" href="workflux/">Run the workflows</a>
+        <a class="btn" href="https://github.com/CompEpigen/PipelineOlympics">Code on GitHub</a>
+      </div>
+      <p class="citation-line"><strong>Lin Y-Y, Breuer K, Weichenhan D, <i>et al.</i></strong> Nucleic Acids Res. 2025;53(19):gkaf970. <a href="https://doi.org/10.1093/nar/gkaf970">doi:10.1093/nar/gkaf970</a> · open access (CC BY)</p>
+    </div>
+  </div>
+
+  <section id="study">
+    <div class="wrap">
+      <h2>The study</h2>
+      <p class="section-intro">DNA methylation data are usually processed in four steps: read trimming, conversion-aware alignment, post-alignment filtering (such as PCR duplicate removal) and methylation calling. Many tools exist for each step, but complete workflows had never been compared on real data with a known answer. Pipeline Olympics fills that gap.</p>
+
+      <div class="stats">
+        <div class="stat"><b>10</b><span>complete workflows</span></div>
+        <div class="stat"><b>5</b><span>sequencing protocols</span></div>
+        <div class="stat"><b>4</b><span>samples (2 tumor–normal pairs)</span></div>
+        <div class="stat"><b>192</b><span>processing runs</span></div>
+        <div class="stat"><b>46</b><span>gold-standard loci</span></div>
+        <div class="stat"><b>6</b><span>ranking metrics</span></div>
+      </div>
+
+      <div class="grid" style="margin-top:24px">
+        <div class="card">
+          <h3>Samples with a known answer</h3>
+          <p>Two pairs of colon cancer and adjacent normal tissue (patients 5 and 6) from the <a href="https://doi.org/10.1038/nbt.3605">BLUEPRINT benchmark of targeted methylation assays</a>. In that study, 16 assays in multiple labs established consensus corridors for the true methylation levels at selected loci. We use these as the gold standard.</p>
+        </div>
+        <div class="card">
+          <h3>Five library protocols</h3>
+          <p>Each sample was sequenced with standard <b>WGBS</b>, three low-input protocols (<b>Swift</b> Accel-NGS, tagmentation-based <b>T-WGBS</b> and <b>PBAT</b>) and the bisulfite-free enzymatic <b>EM-seq</b>. That gave 300 to 986 million read pairs per sample.</p>
+        </div>
+        <div class="card">
+          <h3>Reproducible execution</h3>
+          <p>All workflows were implemented in the <a href="https://www.commonwl.org/">Common Workflow Language</a> with containers, and run in the same controlled environment. Methylation calls were aggregated with <a href="https://bioconductor.org/packages/methrix/">methrix</a>.</p>
+        </div>
+      </div>
+
+      <figure class="figure">
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Metric</th><th>What it measures</th></tr></thead>
+            <tbody>
+              <tr><td>Coverage</td><td>Area under the curve of CpGs retained versus read-depth threshold</td></tr>
+              <tr><td>Genome-wide deviation</td><td>Distance from a data-driven consensus corridor across all CpGs (WGBS, Swift, EM-seq)</td></tr>
+              <tr><td>Gold-standard deviation</td><td>Mean absolute deviation from the experimental consensus at the 46 BLUEPRINT loci</td></tr>
+              <tr><td>Differential methylation</td><td>Recovery of tumor–normal differences found with Infinium 450k arrays (AUC and correlation)</td></tr>
+              <tr><td>Run time</td><td>Wall-clock time with all resources of a compute node</td></tr>
+              <tr><td>Peak memory</td><td>Maximum memory usage</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption>The six metrics behind the final ranking. Each workflow is ranked per metric, and the ranks are averaged across metrics and protocols.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="findings">
+    <div class="wrap">
+      <h2>Key findings</h2>
+      <ul class="findings">
+        <li><b>BSBolt, methylCtools and bwa-meth perform best.</b> BSBolt ranked first, and methylCtools placed second in three protocols. All three top workflows use three-letter alignment with BWA as the engine.</li>
+        <li><b>The workflow matters most for low-input data.</b> On deep WGBS, Swift and EM-seq data, most workflows agree closely. On PBAT and T-WGBS, low coverage magnifies the differences, and the workflow had a significant effect on accuracy at the gold-standard loci.</li>
+        <li><b>PBAT is the hardest case.</b> Workflows lost 20–77% of PBAT reads during alignment, partly because of chimeric reads. Biscuit, BSBolt and methylCtools handled it best. Biscuit varied the most across protocols overall, but did very well on PBAT, the protocol closest to single-cell methods.</li>
+        <li><b>Fast workflows are not the most accurate.</b> Run time ranged from about 4 hours (gemBS) to 14 days (GSNAP), and peak memory from 16 GB (Bismark) to 319 GB (GSNAP). gemBS, FAME, Biscuit and Bismark were the most efficient, but tended to score lower on accuracy.</li>
+        <li><b>A benchmark can find bugs.</b> Inspecting outliers at gold-standard loci showed that methylpy fails to restore some in-silico converted bases before calling, so it underestimates methylation.</li>
+        <li><b>Good documentation does not predict performance.</b> Biscuit, methylpy and Bismark scored highest for installation and documentation quality. This score was unrelated to the benchmark results.</li>
+      </ul>
+      <p style="margin-top:20px">The overall ranking weights all metrics equally. Your priorities may differ, so the <a href="shiny/">results portal</a> lets you change the weights and re-rank the workflows for your protocol.</p>
+    </div>
+  </section>
+
+  <section id="workflows">
+    <div class="wrap">
+      <h2>Benchmarked workflows</h2>
+      <p class="section-intro">The CWL implementation of each workflow is in <a href="https://github.com/CompEpigen/PipelineOlympics/tree/main/CWL/workflows"><code>CWL/workflows</code></a> on GitHub.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Workflow</th><th>Components</th><th class="c">On the benchmarking server</th></tr></thead>
+          <tbody>
+            <tr><td><a href="http://www.bioinf.uni-leipzig.de/Software/BAT/">BAT</a></td><td>Bisulfite Analysis Toolkit</td><td class="c">yes</td></tr>
+            <tr><td><a href="https://huishenlab.github.io/biscuit/">Biscuit</a></td><td>Biscuit</td><td class="c">yes</td></tr>
+            <tr><td><a href="https://www.bioinformatics.babraham.ac.uk/projects/bismark/">Bismark</a></td><td>Bismark</td><td class="c na">not yet</td></tr>
+            <tr><td><a href="https://github.com/NuttyLogic/BSBolt">BSBolt</a></td><td>BSBolt</td><td class="c">yes</td></tr>
+            <tr><td><a href="https://github.com/brentp/bwa-meth">bwa-meth</a></td><td>bwa-meth + <a href="https://github.com/dpryan79/MethylDackel">MethylDackel</a></td><td class="c">yes</td></tr>
+            <tr><td><a href="https://github.com/FischerJo/FAME">FAME</a></td><td>FAME</td><td class="c">yes</td></tr>
+            <tr><td><a href="https://github.com/heathsc/gemBS">gemBS</a></td><td>gemBS</td><td class="c">yes</td></tr>
+            <tr><td><a href="http://research-pub.gene.com/gmap/">GSNAP</a></td><td>GSNAP + <a href="https://people.csail.mit.edu/dnaase/bissnp2011/">BisSNP</a></td><td class="c">yes</td></tr>
+            <tr><td><a href="https://github.com/hovestadt/methylCtools">methylCtools</a></td><td>methylCtools</td><td class="c">yes</td></tr>
+            <tr><td><a href="https://github.com/yupenghe/methylpy">methylpy</a></td><td>methylpy</td><td class="c">yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <div class="wrap">
+      <h2>Resources</h2>
+      <div class="grid">
+        <div class="card feature">
+          <h3>Results portal</h3>
+          <p>An interactive Shiny app with coverage and methylation statistics, the 46 gold-standard loci, and a ranking table you can customize.</p>
+          <a class="more" href="shiny/">Open the results portal →</a>
+        </div>
+        <div class="card feature">
+          <h3>Benchmarking service</h3>
+          <p>A public workflUX server on the de.NBI cloud. It runs the benchmarked workflows on downscaled versions of the study data, with ready-made parameter sheets.</p>
+          <a class="more" href="workflux/">How to use it →</a>
+        </div>
+        <div class="card">
+          <h3>Code and workflows</h3>
+          <p>CWL workflows with container details, and the R analysis scripts. Archived on Zenodo.</p>
+          <a class="more" href="https://github.com/CompEpigen/PipelineOlympics">GitHub</a> · <a class="more" href="https://doi.org/10.5281/zenodo.16573651">Zenodo</a>
+        </div>
+        <div class="card">
+          <h3>Sequencing data</h3>
+          <p>Raw reads for all samples and protocols, under controlled access.</p>
+          <a class="more" href="https://ega-archive.org/studies/EGAS50000000541">EGA: EGAS50000000541</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cite">
+    <div class="wrap">
+      <h2>How to cite</h2>
+      <p>Lin Y-Y, Breuer K, Weichenhan D, <i>et al.</i> Pipeline Olympics: continuable benchmarking of computational workflows for DNA methylation sequencing data against an experimental gold standard. <i>Nucleic Acids Research</i> 2025;53(19):gkaf970. <a href="https://doi.org/10.1093/nar/gkaf970">https://doi.org/10.1093/nar/gkaf970</a></p>
+      <p class="authors">PMID <a href="https://pubmed.ncbi.nlm.nih.gov/41118575/">41118575</a> · PMCID <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12539629/">PMC12539629</a> · <a href="https://academic.oup.com/nar/article/53/19/gkaf970/8294356">journal page</a></p>
+      <details>
+        <summary>All authors</summary>
+        <p class="authors">Lin YY, Breuer K, Weichenhan D, Lafrenz P, Sarnataro A, Wilk A, Chepeleva M, Mücke O, Schönung M, Petermann F, Kensche PR, Weiser L, Thommen F, Giacomelli G, Nordstroem K, Gonzalez-Avalos E, Merkel A, Kretzmer H, Fischer J, Krämer S, Iskar M, Wolf S, Buchhalter I, Esteller M, Lawerenz C, Twardziok S, Zapatka M, Hovestadt V, Schlesner M, Schulz MH, Hoffmann S, Gerhauser C, Walter J, Hartmann M, Lipka DB, Assenov Y, Bock C, Plass C, Toth R, Lutsik P.</p>
+      </details>
+      <details>
+        <summary>BibTeX</summary>
+<pre><code>@article{lin2025pipelineolympics,
+  author  = {Lin, Yu-Yu and Breuer, Kersten and Weichenhan, Dieter and others},
+  title   = {Pipeline {Olympics}: continuable benchmarking of computational
+             workflows for {DNA} methylation sequencing data against an
+             experimental gold standard},
+  journal = {Nucleic Acids Research},
+  year    = {2025},
+  volume  = {53},
+  number  = {19},
+  pages   = {gkaf970},
+  doi     = {10.1093/nar/gkaf970}
+}</code></pre>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Pipeline Olympics is supported by BMBF (BSmadeEZ), Horizon Europe (EOSC4Cancer), and de.NBI, which also provides the cloud resources for the web services.</p>
+    <p><a href="https://github.com/CompEpigen/PipelineOlympics">github.com/CompEpigen/PipelineOlympics</a></p>
+  </div>
+</footer>
+
 </body>
+</html>

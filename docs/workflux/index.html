@@ -2,10 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=http://194.94.113.7">
-  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmarking Service Guide</title>
+  <meta name="description" content="How to run the Pipeline Olympics workflows on the public workflUX demo server with ready-made parameter sheets.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 26V12M16 26V6M26 26V14' stroke='%230b6e69' stroke-width='2.5'/%3E%3Ccircle cx='6' cy='10' r='4.5' fill='%230b6e69'/%3E%3Ccircle cx='16' cy='6' r='4.5' fill='white' stroke='%230b6e69' stroke-width='2.5'/%3E%3Ccircle cx='26' cy='12' r='4.5' fill='%230b6e69'/%3E%3C/svg%3E">
 </head>
 <body>
-  <p>If you are not redirected, <a href="https://epigenomics.dkfz.de/PipelineOlympics/workflux">click here</a>.</p>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26V12M16 26V8M26 26V14" stroke="currentColor" stroke-width="2.5"/><circle cx="6" cy="10" r="4.5" fill="var(--accent)"/><circle cx="16" cy="7" r="4.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="26" cy="12" r="4.5" fill="var(--accent)"/></svg>
+      Pipeline Olympics
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../">Study</a>
+      <a href="../shiny/">Results portal</a>
+      <a href="./" aria-current="page">Benchmarking service</a>
+      <a href="#sheets">Parameter sheets</a>
+      <a href="#own-workflow">Add a workflow</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Benchmarking service</p>
+      <h1>Run the workflows on the study data</h1>
+      <p class="lede">The Pipeline Olympics workflUX server runs the benchmarked workflows on downscaled versions of the study data: four samples, five protocols. Everything is set up in advance. Pick a parameter sheet, upload it and start the runs. No account is needed.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://194.94.113.7/">Open the workflUX server</a>
+        <a class="btn" href="#sheets">Download a parameter sheet</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How to run a workflow</h2>
+      <p class="section-intro">Each parameter sheet describes one complete job: one workflow and one protocol, with four runs, one per test sample. <code>5N</code> and <code>6N</code> are the adjacent normal samples of patients 5 and 6, and <code>5T</code> and <code>6T</code> are the tumors. The settings are the same as in the study.</p>
+      <ol class="steps">
+        <li>
+          <h3>Download a sheet</h3>
+          <p>Choose the workflow and protocol in the <a href="#sheets">table below</a> and download the <code>.xlsx</code> file.</p>
+        </li>
+        <li>
+          <h3>Create the job</h3>
+          <p>On the <a href="https://194.94.113.7/">workflUX server</a>, open <b>Create Job</b> and select the workflow named in the sheet's file name, which is the part before the protocol. For example, <code>bsbolt_singlelib_EMSEQ.xlsx</code> belongs to <code>bsbolt_singlelib</code>.</p>
+        </li>
+        <li>
+          <h3>Import the sheet</h3>
+          <p>Enter a <b>job name</b> with letters, digits, <code>.</code>, <code>_</code> or <code>-</code> only, and no spaces. Under <b>Provide parameter using</b>, choose <b>Spreadsheet</b>. Skip the export step: under <b>3. Import and create job</b>, select the downloaded sheet and import it.</p>
+        </li>
+        <li>
+          <h3>Start the runs</h3>
+          <p>Open <b>Job Execution &amp; Results</b>, select your job and start its four runs. You can follow their progress there, stop them, and view and download the output files once they finish.</p>
+        </li>
+      </ol>
+
+      <div class="note">
+        <p><b>Please note:</b> this is a shared public demo. Visitors don't log in, so the jobs you create are visible to all other visitors. Runs are queued, with at most two running at once, and stopped after 48 hours. Jobs are deleted after 14 days. Only the test data on the server can be used as input, and files cannot be uploaded.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sheets">
+    <div class="wrap">
+      <h2>Parameter sheets</h2>
+      <p class="section-intro">One sheet per workflow and protocol. A dash means the study had no settings for that combination. For example, BAT does not support the non-directional PBAT protocol. All sheets are also in <a href="https://github.com/CompEpigen/PipelineOlympics/tree/main/docs/workflux/sheets"><code>docs/workflux/sheets</code></a> on GitHub.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Workflow on the server</th><th class="c">EM-seq</th><th class="c">PBAT</th><th class="c">Swift</th><th class="c">WGBS</th><th class="c">T-WGBS</th></tr></thead>
+          <tbody>
+            <tr><td><code>BAT_workflow</code></td><td class="c"><a class="dl" href="sheets/BAT_workflow_EMSEQ.xlsx" download>xlsx</a></td><td class="c na">–</td><td class="c"><a class="dl" href="sheets/BAT_workflow_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/BAT_workflow_WGBS.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/BAT_workflow_TWGBS.xlsx" download>xlsx</a></td></tr>
+            <tr><td><code>BAT_workflow_start_with_trimmed</code></td><td class="c"><a class="dl" href="sheets/BAT_workflow_start_with_trimmed_EMSEQ.xlsx" download>xlsx</a></td><td class="c na">–</td><td class="c"><a class="dl" href="sheets/BAT_workflow_start_with_trimmed_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/BAT_workflow_start_with_trimmed_WGBS.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/BAT_workflow_start_with_trimmed_TWGBS.xlsx" download>xlsx</a></td></tr>
+            <tr><td><code>biscuit_singlelib</code></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>biscuit_singlelib_start_with_trimmed</code></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_start_with_trimmed_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_start_with_trimmed_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_start_with_trimmed_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/biscuit_singlelib_start_with_trimmed_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>bsbolt_singlelib</code></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>bsbolt_singlelib_start_with_trimmed</code></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_start_with_trimmed_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_start_with_trimmed_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_start_with_trimmed_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bsbolt_singlelib_start_with_trimmed_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>bwameth_singlelib</code></td><td class="c"><a class="dl" href="sheets/bwameth_singlelib_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bwameth_singlelib_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bwameth_singlelib_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/bwameth_singlelib_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>fame_multiple</code></td><td class="c"><a class="dl" href="sheets/fame_multiple_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/fame_multiple_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/fame_multiple_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/fame_multiple_WGBS.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/fame_multiple_TWGBS.xlsx" download>xlsx</a></td></tr>
+            <tr><td><code>gembs</code></td><td class="c"><a class="dl" href="sheets/gembs_EMSEQ.xlsx" download>xlsx</a></td><td class="c na">–</td><td class="c"><a class="dl" href="sheets/gembs_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/gembs_WGBS.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/gembs_TWGBS.xlsx" download>xlsx</a></td></tr>
+            <tr><td><code>gsnap_singlelib</code></td><td class="c"><a class="dl" href="sheets/gsnap_singlelib_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/gsnap_singlelib_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/gsnap_singlelib_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/gsnap_singlelib_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>methylCtools_singlelib</code></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>methylCtools_singlelib_start_with_trimmed</code></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_start_with_trimmed_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_start_with_trimmed_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_start_with_trimmed_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylCtools_singlelib_start_with_trimmed_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+            <tr><td><code>methylpy_singlelib_start_with_trimmed</code></td><td class="c"><a class="dl" href="sheets/methylpy_singlelib_start_with_trimmed_EMSEQ.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylpy_singlelib_start_with_trimmed_PBAT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylpy_singlelib_start_with_trimmed_SWIFT.xlsx" download>xlsx</a></td><td class="c"><a class="dl" href="sheets/methylpy_singlelib_start_with_trimmed_WGBS.xlsx" download>xlsx</a></td><td class="c na">–</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px">The <code>*_start_with_trimmed</code> workflows skip adapter trimming and expect trimmed reads. The study has no separate settings for them, so their sheets use the settings of the matching full workflow and the untrimmed test reads. For meaningful results, replace the reads with trimmed FASTQ files.</p>
+
+      <details>
+        <summary>Changing the settings in a sheet</summary>
+        <p style="margin-top:12px">Open the sheet in Excel or LibreOffice, edit it, save it as <code>.xlsx</code> and import it as above.</p>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Tab</th><th>Contents</th></tr></thead>
+            <tbody>
+              <tr><td><code>global single values</code></td><td>Settings shared by all four runs (<code>null</code> = not set)</td></tr>
+              <tr><td><code>run-specific single values</code></td><td>One row per run, for example the output name</td></tr>
+              <tr><td><code>read1</code>, <code>read2</code></td><td>The FASTQ files of each run, one row per run</td></tr>
+              <tr><td><code>config</code>, <code>metadata</code></td><td>Used by workflUX, leave unchanged</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px">Input files must be on the server under <code>/data/data</code>. To use your own settings without a sheet, choose <b>HTML form</b> instead of <b>Spreadsheet</b> in step 3.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="own-workflow">
+    <div class="wrap">
+      <h2>Benchmark your own workflow</h2>
+      <p class="section-intro">Pipeline Olympics is meant to keep growing. Workflows are added to the server by its maintainers, so visitors cannot import workflows themselves. To add yours:</p>
+      <ol class="steps">
+        <li>
+          <h3>Describe it in CWL</h3>
+          <p>Implement the workflow in the <a href="https://www.commonwl.org/">Common Workflow Language</a>, with Docker containers for its tools. A simple single-command wrapper is enough. The workflows in <a href="https://github.com/CompEpigen/PipelineOlympics/tree/main/CWL/workflows"><code>CWL/workflows</code></a> show the expected inputs and outputs.</p>
+        </li>
+        <li>
+          <h3>Submit it</h3>
+          <p>Open a <a href="https://github.com/CompEpigen/PipelineOlympics/pulls">pull request</a> or an <a href="https://github.com/CompEpigen/PipelineOlympics/issues">issue</a> on GitHub with the CWL files and a job file for each protocol. We will add it to the server.</p>
+        </li>
+        <li>
+          <h3>Compare the results</h3>
+          <p>Run it on the test data like the other workflows, and compare its methylation calls with theirs. The <a href="https://github.com/CompEpigen/PipelineOlympics/tree/main/analysis">analysis scripts</a> compute the metrics used in the study.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>The benchmarking service runs <a href="https://github.com/workflux/workflUX">workflUX</a> with <a href="https://github.com/common-workflow-language/cwltool">cwltool</a> and SingularityCE on the <a href="https://www.denbi.de/cloud">de.NBI cloud</a>.</p>
+    <p>Pipeline Olympics · <a href="https://doi.org/10.1093/nar/gkaf970">Nucleic Acids Research 2025</a> · <a href="https://github.com/CompEpigen/PipelineOlympics">GitHub</a></p>
+  </div>
+</footer>
+
 </body>
 </html>
