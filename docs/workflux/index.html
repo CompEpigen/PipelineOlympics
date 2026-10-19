@@ -22,6 +22,7 @@
       <a href="./" aria-current="page">Benchmarking service</a>
       <a href="#sheets">Parameter sheets</a>
       <a href="#own-workflow">Add a workflow</a>
+      <a href="#own-server">Own server</a>
     </nav>
   </div>
 </header>
@@ -131,6 +132,27 @@
           <p>Run it on the test data like the other workflows, and compare its methylation calls with theirs. The <a href="https://github.com/CompEpigen/PipelineOlympics/tree/main/analysis">analysis scripts</a> compute the metrics used in the study.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section id="own-server">
+    <div class="wrap">
+      <h2>Run the services on your own server</h2>
+      <p class="section-intro">Both Pipeline Olympics services can be installed on your own premises, for example to benchmark workflows on private infrastructure or with more compute. Each setup bundle contains one script that installs and configures everything on a fresh Ubuntu 24.04 server, including HTTPS (Let's Encrypt, self-signed or your own certificate) and the hardening of the public instances.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Benchmarking service</h3>
+          <p>workflUX with all importable workflows, their container images and the parameter sheets on this page. Needs about 1 TB of disk for the test data and results.</p>
+          <p>The test data are derived from controlled-access patient data, so they are not included. The bundle's README describes the required files and how to prepare them, starting from the raw reads in <a href="https://ega-archive.org/studies/EGAS50000000541">EGA study EGAS50000000541</a>.</p>
+        </div>
+        <div class="card">
+          <h3>Results portal</h3>
+          <p>The Shiny app with R, Bioconductor and Shiny Server. A small server is enough, and no data have to be prepared.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/CompEpigen/PipelineOlympics/releases">Download the setup bundles</a>
+      </div>
     </div>
   </section>
 </main>
